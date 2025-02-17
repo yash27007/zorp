@@ -1,2 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import 'tailwindcss';
 
+@theme
+{
+    /* Blue colour theme */
+  --color-logo-blue-50: #e7e7ee;
+  --color-logo-blue-100: #b3b1cb;
+  --color-logo-blue-200: #8f8bb1;
+  --color-logo-blue-300: #5c568e;
+  --color-logo-blue-400: #3c3758;
+  --color-logo-blue-500: #0b0356;
+  --color-logo-blue-600: #0a034e;
+  --color-logo-blue-700: #08023d;
+  --color-logo-blue-800: #06022f;
+  --color-logo-blue-900: #050124;
+
+  /* Beige Colour */
+  --color-beige-50: #fffffd;
+  --color-beige-100: #fffdf9;
+  --color-beige-200: #fffdf6;
+  --color-beige-300: #fffcf2;
+  --color-beige-400: #fffbf0;
+  --color-beige-500: #fffaec;
+  --color-beige-600: #e8e4d7;
+  --color-beige-700: #b5b2a8;
+  --color-beige-800: #8c8a82;
+  --color-beige-900: #6b6963;
+
+  /* Logo Green Colour */
+  --color-logo-green-50: #e7ebe6;
+  --color-logo-green-100: #b4c1b0;
+  --color-logo-green-200: #8fa38a;
+  --color-logo-green-300: #5c7855;
+  --color-logo-green-400: #3d5e34;
+  --color-logo-green-500: #0c3610;
+  --color-logo-green-600: #0b3101;
+  --color-logo-green-700: #092601;
+  --color-logo-green-800: #071e10;
+  --color-logo-green-900: #051700;
+
+  /* Font sizes */
+  --text-hero-large: 64px;
+  --text-hero-small: 36px;
+  --text-h1: 48px;
+  --text-h2: 40px;
+  --text-h3: 33px;
+  --text-h4: 28px;
+  --text-h5: 23px;
+  --text-h6: 19px;
+  --text-para: 18px;
+
+  /* Font families */
+  --font-poppins: Poppins, sans-serif;
+  --font-outfit: Outfit, sans-serif;
+
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+}
+@layer base{
+    body{
+        background-color:var(--color-beige-500);
+        font-size:var(--text-para);
+        font-family:var(--font-outfit);
+        scroll-behavior:smooth;
+        scroll-width:thin;
+    }
+
+    ::selection{
+        background-color:var(--color-logo-green-300);
+        color:var(--color-beige-100);
+    }
+}
+
+@layer utilities {
+    .nav-hover-btn {
+      @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-logo-green-300 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65,0.05,0.36,1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-logo-green-300 cursor-pointer;
+    }
+  
+    .active {
+      @apply text-logo-green-500 after:scale-x-100;
+    }
+  }
+  

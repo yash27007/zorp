@@ -9,7 +9,7 @@ const Features = () => {
   return (
     <section id="about" className="min-h-screen w-screen flex flex-col items-center pt-14 px-4">
       <m.h2 
-        className="font-poppins text-h3 font-medium text-logo-green-500"
+        className="font-poppins text-h3 font-medium text-logo-green-500 mb-5"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

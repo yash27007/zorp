@@ -5,17 +5,17 @@ import FUMPage from "./pages/FUMPage";
 import ProductsPage from "./pages/ProductsPage";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
-import BlogPage from "./pages/BlogPage";
+import ScrollToTop from "./components/ScrollToTop";
 const App = () => {
   return (
     <BrowserRouter>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<HomePage/>}/>
       <Route path="/contact" element={<ContactPage/>}/>
       <Route path="/products" element={<ProductsPage/>}/>
       <Route path="/services" element={<ServicesPage/>}/>
       <Route path="/farm-under-management" element={<FUMPage/>}/>
-      <Route path="/blog/:id" element={<BlogPage/>}/>
     </Routes>
     </BrowserRouter>
   );

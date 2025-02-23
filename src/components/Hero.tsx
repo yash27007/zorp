@@ -43,20 +43,20 @@ const Hero = () => {
           >
             {/* Large Image on Left */}
             <motion.img
-              src="public/Images/Hero/1.png"
+              src="/Images/Hero/1.png"
               alt="Hero Image 1"
               className="h-64 w-max row-span-2 lg:h-max"
               whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
             />
             {/* Two Stacked Small Images on Right */}
             <motion.img
-              src="public/Images/Hero/2.png"
+              src="/Images/Hero/2.png"
               alt="Hero Image 2"
               className="h-30 w-max lg:h-max"
               whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
             />
             <motion.img 
-              src="public/Images/Hero/3.png"
+              src="/Images/Hero/3.png"
               alt="Hero Image 3"
               className="h-30 w-max lg:h-max"
               whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}

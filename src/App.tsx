@@ -6,6 +6,8 @@ import ProductsPage from "./pages/ProductsPage";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import ScrollToTop from "./components/ScrollToTop";
+import BlogsPage from "./pages/BlogsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 const App = () => {
   return (
     <BrowserRouter>
@@ -16,6 +18,8 @@ const App = () => {
       <Route path="/products" element={<ProductsPage/>}/>
       <Route path="/services" element={<ServicesPage/>}/>
       <Route path="/farm-under-management" element={<FUMPage/>}/>
+      <Route path="/blog" element={<BlogsPage/>}/>
+      <Route path="*" element={<NotFoundPage/>}/>
     </Routes>
     </BrowserRouter>
   );

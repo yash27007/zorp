@@ -121,7 +121,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 flex justify-between items-center px-3 md:px-10 py-4 transition-all duration-300 ${
-        isScrolled ? "bg-beige-500/50" : "bg-transparent"
+        isScrolled ? "bg-beige-500/80" : "bg-transparent"
       }`}
     >
       {/* Logo */}

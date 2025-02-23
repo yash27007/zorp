@@ -6,7 +6,6 @@ import img3 from "/public/Images/Services/3.png";
 import img4 from "/public/Images/Services/4.png";
 import { Button } from "../components/ui/button";
 import { motion as m } from "framer-motion";
-import { BulletPoint } from "../components/ui/bulletPoint";
 import { useNavigate } from "react-router";
 
 const ServicesPage = () => {

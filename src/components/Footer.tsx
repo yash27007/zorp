@@ -53,10 +53,10 @@ const Footer = () => {
             className="flex flex-col items-center md:items-end"
           >
             <h4 className="text-lg font-semibold text-logo-green-900 mb-3">Contact Us</h4>
-            <p className="flex items-center gap-2 text-logo-green-700"><MapPin size={18} />The 
-Nilgiris
-, India</p>
-            <p className="flex items-center gap-2 text-logo-green-700"><Phone size={18} /> +91 98765 43210</p>
+            <p className="flex items-center gap-2 text-logo-green-700"><MapPin size={18} />The
+              Nilgiris
+              , India</p>
+            <p className="flex items-center gap-2 text-logo-green-700"><Phone size={18} /> +91 88700 31381</p>
             <p className="flex items-center gap-2 text-logo-green-700"><Mail size={18} /> contact@zorp.in</p>
           </motion.div>
 
@@ -74,10 +74,10 @@ Nilgiris
           <p className="text-logo-green-700 text-sm mt-1">
             Designed & Developed by{" "}
             <a
-              href="https://webcrea8teach.com"
+              href="https://webcre8tech.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-logo-green-900 font-semibold hover:underline"
+              className="text-logo-green-700 font-semibold hover:underline"
             >
               WebCre8
             </a>

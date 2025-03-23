@@ -1,14 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import axios from "axios";
+import toast from "react-hot-toast";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import img1 from "/public/Images/Contact.png";
 
 const ContactPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    businessType: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await axios.post(
+        "https://email-service-quxb.onrender.com/send-email",
+        {
+          from: formData.email,
+          to: "vedanth.s.1209@gmail.com",
+          name: formData.name,
+          phone: formData.phone,
+          businessType: formData.businessType,
+        }
+      );
+
+      if (response.data.success) {
+        toast.success("Email sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          businessType: "",
+        });
+      } else {
+        toast.error("Failed to send email. Please try again.");
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.");
+      console.error("Error sending email:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
       <Navbar />
-      <main className=" mt-12 min-h-screen flex flex-col items-center px-4 md:px-10 py-8 md:py-12">
+      <main className="mt-12 min-h-screen flex flex-col items-center px-4 md:px-10 py-8 md:py-12">
         {/* Header Section */}
         <motion.section
           initial={{ opacity: 0, y: -20 }}
@@ -50,32 +103,49 @@ const ContactPage: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="w-full md:w-1/2 max-w-md"
           >
-            <form className="flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Name"
-                className="w-full py-3 px-4 border border-gray-200 rounded-md  text-center"
+                required
+                className="w-full py-3 px-4 border border-gray-200 rounded-md text-center"
               />
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Email"
+                required
                 className="w-full py-3 px-4 border border-gray-200 rounded-md text-center"
               />
               <input
                 type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 placeholder="Phone Number"
-                className="w-full py-3 px-4 border border-gray-200 rounded-md  text-center"
+                required
+                className="w-full py-3 px-4 border border-gray-200 rounded-md text-center"
               />
               <input
                 type="text"
+                name="businessType"
+                value={formData.businessType}
+                onChange={handleChange}
                 placeholder="Business Type"
+                required
                 className="w-full py-3 px-4 border border-gray-200 rounded-md text-center"
               />
               <button
                 type="submit"
-                className="w-full py-3 px-4 bg-green-900 text-white font-medium rounded-md hover:bg-green-800 transition-colors mt-2"
+                disabled={isSubmitting}
+                className="w-full py-3 px-4 bg-green-900 text-white font-medium rounded-md hover:bg-green-800 transition-colors mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Submit your Inquiry
+                {isSubmitting ? "Sending..." : "Submit your Inquiry"}
               </button>
             </form>
           </motion.div>

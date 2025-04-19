@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+# Zorp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![View Repository](https://img.shields.io/badge/GitHub-View_Repository-blue?logo=github)](https://github.com/yash27007/zorp)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+This project is built using the following technologies:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* **Frontend Library/Framework:** React
+* **Language:** TypeScript
+* **CSS Framework:** Tailwind CSS
+* **Build Tool/Bundler:** Vite
+* **Animation Library:** Framer Motion
+* **Routing:** React Router
 
-- Configure the top-level `parserOptions` property like this:
+## Project Structure
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+The repository is organized as follows:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+* `/public`: Contains all static assets, primarily images used in the application.
+* `/src`: Contains all the source code for the application.
+    * `/components`: Houses reusable UI components and common UI elements used across different pages.
+    * `/constants`: Includes data files like `data.ts`, which maps data (e.g., vegetables to their images).
+    * `/pages`: Contains individual page components that represent distinct views/routes in the application.
+    * `App.tsx`: The main application component where routing and component rendering are likely set up.
+    * `index.css`: Initializes Tailwind CSS styles and may contain global or base styles, including color definitions.
+    * `main.tsx`: The entry point of the React application, responsible for rendering the root component (`App.tsx`) into the DOM.
